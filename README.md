@@ -59,3 +59,9 @@
 
 
 Удачи! ✨✨
+
+## Музыка для проверки 🎧
+
+[MAN WITH A MISSION　『Dive』](https://youtu.be/YXMIpk9cIc4?si=nVHdYCIrfD_Wv2xR)
+[Beyond the way 歌ってみた【あらき×nqrse×めいちゃん】](https://youtu.be/ZUYWFpPhA3g?si=0V7F36PgAbOOG84n)
+
