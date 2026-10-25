@@ -2,13 +2,29 @@ import re
 import os
 
 #Salty language translator
-def salty_lang(string):
+def salty_lang(string: str) -> str:
+    """
+    Translates any text in Russian to salty language
+
+    Argument:
+    string: str. Text in Russian
+    
+    Returns string translated to salty language
+    """
     for letter in 'аоуеыэёяиюАОУЕЫЭЁЯИЮ':
         string = re.sub(letter, letter + 'с' + letter.lower(), string)
     return(string)
 
 #Chords extractor
-def chords_extractor(file):
+def chords_extractor(file: str) -> set[str]:
+    """
+    Extracts all unique chords present in input text file with song in Russian
+
+    Argument:
+    file: str. Path to a text file containing lyrics in Russian with chords in Latin
+    
+    Returns set of chords
+    """
     with open(file) as file:
         pattern = r'[A-Z]{1}[^\s]*'
         all_chords = set()
@@ -18,11 +34,24 @@ def chords_extractor(file):
     return all_chords
 
 #Rename files
-def rename_files(dir,
-                 pattern,
-                 sample_names = None,
-                 new_pattern = None,
-                 to_replace = False):
+def rename_files(dir: str,
+                 pattern: str,
+                 sample_names: dict[str, str] | None = None,
+                 new_pattern: str | None = None,
+                 to_replace: bool = False) -> str:
+    """
+    Finds all files in input directory which match the pattern, replaces names of files using new pattern and/or dictionary with new names. Could rename the existing files of create copies new names
+
+    Arguments:
+    dir: str. Input directory
+    pattern: str. Pattern to find files
+    sample_names = dict or None. Optional, use to rename files using fixed rules
+    new_pattern = str or None. Optional, use to rename files using this pattern
+    to_replace = bool. Default - False. If False creates copies of files with new names, if True renames existing files
+    
+    Returns 'Renaming finished!' in case of correct execution
+    Raises exception in case if new files already exists
+    """
     files = os.listdir(dir)
     for file in files:
         old_path = os.path.join(dir, file)
