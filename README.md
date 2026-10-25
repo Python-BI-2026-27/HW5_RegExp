@@ -56,6 +56,8 @@
 Дополнительные баллы: 
 - В README приложена музыка - **4 доп. балла** (8 доп. баллов если в вашем исполнении)
 
+[Creepy Nuts — Otonoke](https://music.youtube.com/watch?v=W0dsUNS4RT8)
 
+[Natasha Bedingfield — Pocketful of sunshine](https://music.youtube.com/watch?v=btm6GcdPK80)
 
 Удачи! ✨✨
