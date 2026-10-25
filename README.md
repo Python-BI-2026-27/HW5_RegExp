@@ -38,6 +38,12 @@
 
 Я проверяю ваше задание под музыку. Скиньте 1-2 песни, под которые проверять именно вашу домашку:). Баллы за это доп. задание удвоятся, если там будет песня в вашем исполнении.
 
+**Музыка:**
+
+- Sababa 5 & Yurika - Nasnusa (Spotify: https://open.spotify.com/track/4uAdIp8jiEhlEO6Go6A9as?si=a4N6Y36ITFGu1MUSiHA2lg&utm_source=copy-link, Youtube: https://www.youtube.com/watch?v=_okbTEEMEic)
+
+- Naxatras - Journey to Narahmon (Spotify: https://open.spotify.com/track/4Ty6nMK3FnFWq9ByxxbVUE?si=ASkWkw6URMCZErtH_XdzRw&utm_source=copy-link, Youtube: https://www.youtube.com/watch?v=5I3fI_Ezk5I)
+
 ## Доп. моменты:
 - Можно использовать только стандартную библиотеку. 
 - Советую всё проверять в [regex101.com](regex101.com), можете выбрать в меню слева python (и русский язык в настройках)
