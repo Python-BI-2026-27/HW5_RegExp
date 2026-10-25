@@ -1,2 +1,4 @@
 .DS_store
 .python-version
+.mypy_cache
+test-dir/
