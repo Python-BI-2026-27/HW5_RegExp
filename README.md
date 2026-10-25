@@ -1,5 +1,7 @@
 # HW 5. Регулярные выражения
 
+Пока я делала эту домашку у меня играл очень нишевый плейлист из Смешариков. Поэтому прилагаю два моих фаворита: [фаворит 1 - классика](https://music.yandex.ru/album/17617543/track/59508242?ref_id=65CCB83A-DC6E-4409-83B8-DB9AE5B9C712&utm_medium=copy_link) и [фаворит 2 - тоска по родине](https://music.yandex.ru/album/17617543/track/59508242?ref_id=65CCB83A-DC6E-4409-83B8-DB9AE5B9C712&utm_medium=copy_link)
+Хорошей проверки!
 
 Регулярные выражения - одна из самых важных тем в биоинформатике. Например, для парсинга всяких файлов. Очень часто их используют в `grep` или `sed` чтобы добиваться каких-то сложных результатов. Ну а в этом домашнем задании попрактикуемся с какими-нибудь базовыми вещами.
 
@@ -59,3 +61,7 @@
 
 
 Удачи! ✨✨
+## Functions description
+
+- `translate_to_salty_language(text)` - translates Russian text into the salty language: after each vowel it adds "с" and the same vowel in lowercase. Returns the new text.
+- `get_chords(file_path)` - reads a song file and returns set of its chords. A chord is a capital letter A-H, an optional `m` and an optional digit, and must be a whole word.
