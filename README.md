@@ -1,3 +1,34 @@
+[🎧](https://youtu.be/xwtdhWltSIg?si=1-y01mRpBqZKtZmV)
+[🎧](https://youtu.be/kLBaNDQ6Ng8?si=j6cibZrP-2HNMYRb)
+
+# Regular Expressions Practice
+
+A collection of Python functions for regular expressions practice.
+
+## Functions
+
+**salt_transl(text)** - translates Russian text into salt language.
+
+**chord_extractor(song)** - extracts unique chords from a song file. Designed for Russian-language lyrics.
+
+**rename_files()** - batch renames or copies files using regular expressions and a sample name dictionary.
+
+### Usage
+
+`salt_transl("В моём коде нет ошибок, просто он не работает.")`
+
+`chord_extractor("song.txt")`
+
+`rename_files(dir="fastqs", pattern=r"Mix-", new_pattern="", sample_names={"G1": "WT_rep1"},     to_replace=False)`
+
+By default, rename_files() creates copies and preserves the original files. 
+Set to_replace=True to rename the originals.
+
+See the Jupyter Notebook for examples and demonstrations.
+
+
+--------------------------------------------
+
 # HW 5. Регулярные выражения
 
 
