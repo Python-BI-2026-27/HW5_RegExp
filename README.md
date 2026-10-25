@@ -1,61 +1,39 @@
-# HW 5. Регулярные выражения
+## README
+
+In this "Homework_pack" you can find short RegExp tasks in the `.ipynb` file. These tasks can be checked by running the cells — you only need Python 3 installed and an internet connection.
+
+The last three tasks are functions, and they are located in the `script.py` module.
+
+Import the whole module if you want to use all of them:
+
+```python
+import script
+```
+or import a specific function:
+```python
+from script import name_of_function
+```
+### def rename_files()
+This function works with files. It can either delete the original file or keep it (copy mode).
+
+Parameters:  
+- dir — name of the folder where your files are located  
+- pattern — the pattern you want to change  
+- new_pattern — the pattern you want to change it to  
+- sample_names — a dictionary of sample renaming rules  
+- to_replace — whether to delete the original file (True) or just copy it (False, default)
+
+### def salt_language()
+This function translates Russian text into "salty language". It transforms words by replacing each vowel with a complex construction: vowel + "с" + vowel.
+
+Input: the function takes a text string.
+
+### def music()
+This function works only with Russian songs. It takes a path to .txt file as input and returns a set of chords found in the text.
 
 
-Регулярные выражения - одна из самых важных тем в биоинформатике. Например, для парсинга всяких файлов. Очень часто их используют в `grep` или `sed` чтобы добиваться каких-то сложных результатов. Ну а в этом домашнем задании попрактикуемся с какими-нибудь базовыми вещами.
+P.S. I swear that in this homework I used AI only to find a way to copy the file.
+(DeepSeek) 🙈 🙈 🙈  
+P.P.S: click on Pepe to understand me better)
 
-
-## Задание
-### Часть 0. Клятва
-
-Я клянусь что в этом задании я не буду использовать ИИ (Claude, Gemini, DeepSeek, ChatGPT, Copilot, телеграмм-боты, YandexGPT,  Midjourney, ruDALL-E, Я.Автопоэт, Балабоба и др.). 
-
-
-### Часть 1. Короткие задачки чтобы набить руку 
-
-Вам дан ноутбук `HW5_RegExp_Tasks.ipynb`. Откройте его (через Jupyter / VSCode / Google Colab) и в каждом задании подставьте необходимый pattern (в поле `pattern = ...` вместо `...`). Все остальное трогать не надо!
-
-### Часть 2. RegExp-функции
-
-Создайте модуль (скрипт) в котором будут лежать следующие функции (только их определения, не надо их вызывать):
-- Функцию которая осуществляет перевод с русского на "солёный язык" ([Wiki](https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D0%BE%D1%81%D1%8F%D1%87%D1%8C%D1%8F_%D0%BB%D0%B0%D1%82%D1%8B%D0%BD%D1%8C#%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D1%8F%D0%B7%D1%8B%D0%BA)).
-- Функция которая принимает на вход путь до файла с текстом + аккордами песни и возвращает имеющиеся там аккорды (set). Файл пример `song.txt` приложен в папке `data`. Достаточно чтобы работало только с русскими песнями как в примере.
-- Функцию `rename_files` которая осуществляет групповое переименование файлов либо по паттерну, либо по словарю названий образцов, либо последовательно по обоим механизмам. На вход подаются следующие параметры:
-    - `dir` - название директории в которой выбирать файлы (приложена папка `fastqs`)
-    - `pattern` - паттерн, по которому выбирать файлы из директории (и который подлежит замене)
-    - `new_pattern` - паттерн на который заменяется названия файлов. Если отсутствует, то переименовая по паттерну не происходит, но при этом исходный паттерн требуется для выбора файлов
-    - `sample_names` - словарь, который задает правила переименования образцов (пример: `{'G1': 'WT_rep1', 'G2': 'WT_rep2'}`). Применяется после замены паттерна (см. скриншот)
-    - `to_replace` - переименовывать файлы с удалением исходных, или просто с копированием (True / False), по умолчанию False
-
-!['rename_files'](img/rename_files.png)
-
-### Часть 3. Демонстрируем наши заслуги
-
-В ноутбуке  `HW5_RegExp_Tasks.ipynb` в конце сделайте импорт вашей функции `rename_files`, подайте ей на вход папку `fastqs` и правильно задайте остальные аргументы чтобы сделать там переименования такие как на скриншоте выше. По итогу работы должны создаться новые файлы (старые удалять не надо). 
-
-А также продемонстрируйте работу двух других функций. 
-
-### Дополнительное задание
-
-Я проверяю ваше задание под музыку. Скиньте 1-2 песни, под которые проверять именно вашу домашку:). Баллы за это доп. задание удвоятся, если там будет песня в вашем исполнении.
-
-## Доп. моменты:
-- Можно использовать только стандартную библиотеку. 
-- Советую всё проверять в [regex101.com](regex101.com), можете выбрать в меню слева python (и русский язык в настройках)
-
-
-## Форма сдачи
-
-Сделайте форк данного репозитория, выполните работу и отправьте решение на проверку в виде pull-request'a
-
-## Pазбалловка
-
-- За каждую задачку из части 1 по 4 балла, суммарно **60 баллов**
-- За каждую функцию по 10 баллов, суммарно **30 баллов**
-- За демонстрацию работы функций - **10 баллов** 
-
-Дополнительные баллы: 
-- В README приложена музыка - **4 доп. балла** (8 доп. баллов если в вашем исполнении)
-
-
-
-Удачи! ✨✨
+[![Пасхалочка](img/pepe.webp)](data/main_theme.mp3)
