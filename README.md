@@ -1,61 +1,77 @@
-# HW 5. Регулярные выражения
+# HW5: Regular Expressions and File Processing
 
+A set of Python functions for the HW5 assignment on regular expressions: transliteration of Russian text, chord extraction from a text file, and renaming of files.
 
-Регулярные выражения - одна из самых важных тем в биоинформатике. Например, для парсинга всяких файлов. Очень часто их используют в `grep` или `sed` чтобы добиваться каких-то сложных результатов. Ну а в этом домашнем задании попрактикуемся с какими-нибудь базовыми вещами.
+Author:
+* Angelina Popova
 
+## Project Structure
 
-## Задание
-### Часть 0. Клятва
+```text
+HW5_RegExp/
+├── data/                    # data for the tasks
+├── fastqs/                  # source fastq files for renaming
+│   ├── Mix-G1_S21_L001_R1_001.fastq
+│   ├── Mix-G1_S21_L001_R2_001.fastq
+│   ├── Mix-G2_S22_L001_R1_001.fastq
+│   └── Mix-G2_S22_L001_R2_001.fastq
+├── img/                     # images for the notebook
+├── HW5_RegExp_Tasks.ipynb   # notebook with task solutions and usage examples
+├── main.py                  # module with the functions
+└── README.md                # description
+```
 
-Я клянусь что в этом задании я не буду использовать ИИ (Claude, Gemini, DeepSeek, ChatGPT, Copilot, телеграмм-боты, YandexGPT,  Midjourney, ruDALL-E, Я.Автопоэт, Балабоба и др.). 
+---
 
+## Features & Functions
 
-### Часть 1. Короткие задачки чтобы набить руку 
+### 1. Russian to 'Saulty' Language Translator
+Translates regular Russian text into the playful "saulty" (солёный) language by appending the consonant 'с' and repeating the original vowel after every vowel found.
 
-Вам дан ноутбук `HW5_RegExp_Tasks.ipynb`. Откройте его (через Jupyter / VSCode / Google Colab) и в каждом задании подставьте необходимый pattern (в поле `pattern = ...` вместо `...`). Все остальное трогать не надо!
+* **Function**: `rus_to_saulty(text: str) -> str`
+* **Example**: 
+  ```python
+  rus_to_saulty("Собака") # Returns: "Сособасакаса"
+  ```
 
-### Часть 2. RegExp-функции
+### 2. Music Chords Extractor
+Reads a `.txt` text file containing a song's lyrics and musical notation, then extracts all unique Russian-style musical chords (supporting main notes A-H, accidentals `#`/`b`, common qualities like `m`, `m7`, `maj7`, `dim`, `aug`, and power/jazz chords like `C5`, `E5`, `C9`).
 
-Создайте модуль (скрипт) в котором будут лежать следующие функции (только их определения, не надо их вызывать):
-- Функцию которая осуществляет перевод с русского на "солёный язык" ([Wiki](https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D0%BE%D1%81%D1%8F%D1%87%D1%8C%D1%8F_%D0%BB%D0%B0%D1%82%D1%8B%D0%BD%D1%8C#%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D1%8F%D0%B7%D1%8B%D0%BA)).
-- Функция которая принимает на вход путь до файла с текстом + аккордами песни и возвращает имеющиеся там аккорды (set). Файл пример `song.txt` приложен в папке `data`. Достаточно чтобы работало только с русскими песнями как в примере.
-- Функцию `rename_files` которая осуществляет групповое переименование файлов либо по паттерну, либо по словарю названий образцов, либо последовательно по обоим механизмам. На вход подаются следующие параметры:
-    - `dir` - название директории в которой выбирать файлы (приложена папка `fastqs`)
-    - `pattern` - паттерн, по которому выбирать файлы из директории (и который подлежит замене)
-    - `new_pattern` - паттерн на который заменяется названия файлов. Если отсутствует, то переименовая по паттерну не происходит, но при этом исходный паттерн требуется для выбора файлов
-    - `sample_names` - словарь, который задает правила переименования образцов (пример: `{'G1': 'WT_rep1', 'G2': 'WT_rep2'}`). Применяется после замены паттерна (см. скриншот)
-    - `to_replace` - переименовывать файлы с удалением исходных, или просто с копированием (True / False), по умолчанию False
+* **Function**: `chords(path: str) -> set`
+* **Example**:
+  ```python
+  unique_chords = chords("data/song.txt")
+  print(unique_chords) # Returns: {'Am', 'C', 'G', 'F7'}
+  ```
+
+### 3. File Renamer
+Filters files inside a directory using a regex pattern and processes them using a new naming pattern, a direct mapping dictionary, or both. It can either modify files in-place or generate copies.
+
+* **Function**: `rename_files(dir: str, pattern: str, new_pattern: str = None, sample_names: dict[str, str] = None, to_replace: bool = False) -> list[str]`
+* **Parameters**:
+  * `dir`: Target directory path.
+  * `pattern`: Regex pattern used to match target files.
+  * `new_pattern`: Regex substitution replacement pattern (optional).
+  * `sample_names`: A look-up dictionary for substring replacement rules (optional).
+  * `to_replace`: If `True`, original files are renamed. If `False`, copies with the new names are created alongside the originals.
 
 !['rename_files'](img/rename_files.png)
 
-### Часть 3. Демонстрируем наши заслуги
+---
 
-В ноутбуке  `HW5_RegExp_Tasks.ipynb` в конце сделайте импорт вашей функции `rename_files`, подайте ей на вход папку `fastqs` и правильно задайте остальные аргументы чтобы сделать там переименования такие как на скриншоте выше. По итогу работы должны создаться новые файлы (старые удалять не надо). 
+## Prerequisites
+* Python 3.x
+* Standard built-in modules used: `re`, `os`, `shutil`
 
-А также продемонстрируйте работу двух других функций. 
-
-### Дополнительное задание
-
-Я проверяю ваше задание под музыку. Скиньте 1-2 песни, под которые проверять именно вашу домашку:). Баллы за это доп. задание удвоятся, если там будет песня в вашем исполнении.
-
-## Доп. моменты:
-- Можно использовать только стандартную библиотеку. 
-- Советую всё проверять в [regex101.com](regex101.com), можете выбрать в меню слева python (и русский язык в настройках)
+### Usage
+Import the functions directly from `main.py` inside your script or your Jupyter Notebook:
 
 
-## Форма сдачи
+---
 
-Сделайте форк данного репозитория, выполните работу и отправьте решение на проверку в виде pull-request'a
+## Music
 
-## Pазбалловка
+Couple of songs I can't stop listening to recently:
 
-- За каждую задачку из части 1 по 4 балла, суммарно **60 баллов**
-- За каждую функцию по 10 баллов, суммарно **30 баллов**
-- За демонстрацию работы функций - **10 баллов** 
-
-Дополнительные баллы: 
-- В README приложена музыка - **4 доп. балла** (8 доп. баллов если в вашем исполнении)
-
-
-
-Удачи! ✨✨
+* [Patrick Watson - Melody Noir](https://www.youtube.com/watch?v=MF-6mBuSGos&list=RDMF-6mBuSGos&start_radio=1)
+* [Дайте танк (!) - Фамилия](https://www.youtube.com/watch?v=thHvFC3V22c&list=RDthHvFC3V22c&start_radio=1)
