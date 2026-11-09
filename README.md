@@ -59,3 +59,9 @@
 
 
 Удачи! ✨✨
+
+
+## Music for checking my homework :)
+
+1. [alt-J – Deadcrush](https://www.youtube.com/watch?v=i70WksXw3Eg)
+2. [ODESZA – A Moment Apart](https://www.youtube.com/watch?v=xarC5jAiO7w)
